@@ -1,3 +1,11 @@
+<script setup lang="ts">
+import {HomePage} from "#components"
+</script>
+
 <template>
-  <h1>Index page</h1>
+  <HomePage/>
 </template>
+
+<style scoped>
+
+</style>

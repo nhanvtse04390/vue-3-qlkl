@@ -16,10 +16,6 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    '@ant-design-vue/nuxt'
+    "nuxt-quasar-ui"
   ],
-
-  antd:{
-    // Options
-  },
 });
