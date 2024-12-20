@@ -21,7 +21,7 @@
         <q-space />
 
         <div class="YL__toolbar-input-container row no-wrap">
-          <q-input dense outlined square v-model="search" placeholder="Search" class="bg-white col" />
+          <q-input dense outlined square v-model="search.value" placeholder="Search" class="bg-white col" />
           <q-btn class="YL__toolbar-input-btn" color="grey-3" text-color="grey-8" icon="search" unelevated />
         </div>
 
@@ -140,76 +140,85 @@
 
     <q-page-container>
       <div class="router-view">
-        <router-view />
+        <<NuxtPage />
       </div>
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
-import { ref } from 'vue'
-import { fabYoutube } from '@quasar/extras/fontawesome-v6'
+import { ref } from 'vue';
+import { fabYoutube } from '@quasar/extras/fontawesome-v6';
 
 export default {
-  name: 'MyLayout',
+  name: 'Default_Layout',
 
-  setup () {
-    const leftDrawerOpen = ref(false)
-    const search = ref('')
+  setup() {
+    const leftDrawerOpen = ref(false);
+    const search = ref('');
 
-    function toggleLeftDrawer () {
-      leftDrawerOpen.value = !leftDrawerOpen.value
-    }
+    const toggleLeftDrawer = () => {
+      leftDrawerOpen.value = !leftDrawerOpen.value;
+    };
+
+    const links1 = [
+      { icon: 'home', text: 'Home' },
+      { icon: 'whatshot', text: 'Trending' },
+      { icon: 'subscriptions', text: 'Subscriptions' },
+    ];
+
+    const links2 = [
+      { icon: 'folder', text: 'Library' },
+      { icon: 'restore', text: 'History' },
+      { icon: 'watch_later', text: 'Watch later' },
+      { icon: 'thumb_up_alt', text: 'Liked videos' },
+    ];
+
+    const links3 = [
+      { icon: fabYoutube, text: 'YouTube Premium' },
+      { icon: 'local_movies', text: 'Movies & Shows' },
+      { icon: 'videogame_asset', text: 'Gaming' },
+      { icon: 'live_tv', text: 'Live' },
+    ];
+
+    const links4 = [
+      { icon: 'settings', text: 'Settings' },
+      { icon: 'flag', text: 'Report history' },
+      { icon: 'help', text: 'Help' },
+      { icon: 'feedback', text: 'Send feedback' },
+    ];
+
+    const buttons1 = [
+      { text: 'About' },
+      { text: 'Press' },
+      { text: 'Copyright' },
+      { text: 'Contact us' },
+      { text: 'Creators' },
+      { text: 'Advertise' },
+      { text: 'Developers' },
+    ];
+
+    const buttons2 = [
+      { text: 'Terms' },
+      { text: 'Privacy' },
+      { text: 'Policy & Safety' },
+      { text: 'Test new features' },
+    ];
 
     return {
       fabYoutube,
-
       leftDrawerOpen,
       search,
-
       toggleLeftDrawer,
-
-      links1: [
-        { icon: 'home', text: 'Home' },
-        { icon: 'whatshot', text: 'Trending' },
-        { icon: 'subscriptions', text: 'Subscriptions' }
-      ],
-      links2: [
-        { icon: 'folder', text: 'Library' },
-        { icon: 'restore', text: 'History' },
-        { icon: 'watch_later', text: 'Watch later' },
-        { icon: 'thumb_up_alt', text: 'Liked videos' }
-      ],
-      links3: [
-        { icon: fabYoutube, text: 'YouTube Premium' },
-        { icon: 'local_movies', text: 'Movies & Shows' },
-        { icon: 'videogame_asset', text: 'Gaming' },
-        { icon: 'live_tv', text: 'Live' }
-      ],
-      links4: [
-        { icon: 'settings', text: 'Settings' },
-        { icon: 'flag', text: 'Report history' },
-        { icon: 'help', text: 'Help' },
-        { icon: 'feedback', text: 'Send feedback' }
-      ],
-      buttons1: [
-        { text: 'About' },
-        { text: 'Press' },
-        { text: 'Copyright' },
-        { text: 'Contact us' },
-        { text: 'Creators' },
-        { text: 'Advertise' },
-        { text: 'Developers' }
-      ],
-      buttons2: [
-        { text: 'Terms' },
-        { text: 'Privacy' },
-        { text: 'Policy & Safety' },
-        { text: 'Test new features' }
-      ]
-    }
-  }
-}
+      links1,
+      links2,
+      links3,
+      links4,
+      buttons1,
+      buttons2,
+    };
+  },
+};
 </script>
 
 <style lang="css">
