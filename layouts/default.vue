@@ -140,7 +140,7 @@
 
     <q-page-container>
       <div class="router-view">
-        <<NuxtPage />
+        <NuxtPage />
       </div>
     </q-page-container>
   </q-layout>
